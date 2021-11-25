@@ -1,28 +1,25 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from './_models/user';
+import { AccountService } from './_services/account.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+export class AppComponent implements OnInit {
+  title = 'The Dating app';
+  users: any;
 
-//Implements OnInit (live cycle hooks)
-export class AppComponent implements OnInit  {
-  title = 'DatingApp';
-  users: any; //This typescript stuff
+  constructor(private accountService: AccountService) {}
 
-  //Using dependancy injection
-  constructor(private http: HttpClient) {}
   ngOnInit() {
-   this.getUsers();
+    this.setCurrentUser();
   }
 
-  getUsers() {
-    this.http.get('https://localhost:44363/api/users').subscribe(response => {
-      this.users = response;
-    }, error => {
-      console.log(error);
-    })
+  setCurrentUser() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user);
   }
 }

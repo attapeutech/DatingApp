@@ -1,3 +1,5 @@
+$1,285,600
+
 Section 3: Building a walking skeleton Part Two-Angular
 node --version
 v16.13.0
@@ -11,3 +13,30 @@ Package Manager: npm 8.1.3
 4. yes
 5. npm install font-awesome
 6. setting ssl
+
+Section 4: Authentication basics
+1. cd API
+2. dotnet ef migrations add UserPasswordAdded
+3. dotnet ef database update
+4. dotnet ef database drop
+5. dotnet ef database update
+6. Use this link to test Token https://jwt.io
+
+Section 5: 
+
+
+
+Section 6: Routing in Angular
+1. cd client/src/app
+2. mkdir members
+3. cd members
+4. mg g c member-list --skip-tests
+5. ng g c member-detail --skip-tests
+6. cd ..
+7. ng g c lists --skip-tests
+8. ng g c messages --skip-tests
+Install toastr
+9. cd ..
+10. cd ..
+11. in "client" folder do: npm install ngx-toastr@13.0.0
+12. 
